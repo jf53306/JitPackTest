@@ -83,6 +83,7 @@ public class PermissionMapCompiler extends AbstractProcessor{
 
         TypeSpec typeSpec=TypeSpec.classBuilder("PermissionBuilder")
                 .addMethod(mapPermissionMethod.build())
+                .addModifiers(Modifier.PUBLIC)
                 .build();
 
         return JavaFile.builder("com.taikang.tailife",typeSpec).build();
