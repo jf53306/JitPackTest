@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/JitPackTest.iml" filepath="$PROJECT_DIR$/JitPackTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib-a/lib-a.iml" filepath="$PROJECT_DIR$/lib-a/lib-a.iml" />
+      <module fileurl="file://$PROJECT_DIR$/permission-map-anno/permission-map-anno.iml" filepath="$PROJECT_DIR$/permission-map-anno/permission-map-anno.iml" />
+      <module fileurl="file://$PROJECT_DIR$/permission-map-compiler/permission-map-compiler.iml" filepath="$PROJECT_DIR$/permission-map-compiler/permission-map-compiler.iml" />
     </modules>
   </component>
 </project>

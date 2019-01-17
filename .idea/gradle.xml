@@ -10,6 +10,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/lib-a" />
+            <option value="$PROJECT_DIR$/permission-map-anno" />
+            <option value="$PROJECT_DIR$/permission-map-compiler" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

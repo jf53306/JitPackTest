@@ -1,1 +1,1 @@
-include ':app', ':lib-a'
+include ':app', ':lib-a', ':permission-map-compiler', ':permission-map-anno'
