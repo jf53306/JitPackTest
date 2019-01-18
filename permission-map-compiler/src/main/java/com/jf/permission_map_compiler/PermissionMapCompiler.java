@@ -68,21 +68,36 @@ public class PermissionMapCompiler extends AbstractProcessor{
 
 
     public JavaFile generateMMMCode(Map<String,String[]> maps){
+
         MethodSpec.Builder mapPermissionMethod=MethodSpec
                 .methodBuilder("mapPermission")
                 .addModifiers(Modifier.PUBLIC,Modifier.STATIC)
                 .returns(Map.class);
         mapPermissionMethod
                 .addStatement("$T<$T,$T[]> mmm= new $T<>()",Map.class,String.class,String.class,HashMap.class);
+
+        MethodSpec.Builder getPermissionMethod=MethodSpec
+                .methodBuilder("getPermission")
+                .addModifiers(Modifier.PUBLIC,Modifier.STATIC)
+                .addParameter(String.class,"activityName")
+                .returns(String[].class)
+                .beginControlFlow("switch(activityName)");
+
         Iterator<Map.Entry<String, String[]>> iterator = maps.entrySet().iterator();
         while (iterator.hasNext()){
             final Map.Entry<String, String[]> next = iterator.next();
             mapPermissionMethod.addStatement("mmm.put($S,"+generateStrings(next.getValue())+")",next.getKey());
+            getPermissionMethod.addStatement("case $S:  return "+generateStrings(next.getValue()),next.getKey());
         }
+
         mapPermissionMethod.addStatement("return mmm");
+
+        getPermissionMethod.endControlFlow().addStatement("return null");
+
 
         TypeSpec typeSpec=TypeSpec.classBuilder("PermissionBuilder")
                 .addMethod(mapPermissionMethod.build())
+                .addMethod(getPermissionMethod.build())
                 .addModifiers(Modifier.PUBLIC)
                 .build();
 
